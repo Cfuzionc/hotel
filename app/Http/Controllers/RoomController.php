@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoomController extends Controller
 {
@@ -23,7 +25,9 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        $rooms = Room::all();
+
+        return view('room.create', compact('rooms'));
     }
 
     /**
@@ -34,7 +38,12 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Room::create([
+            "kamernummer" => $request->input("kamernummer"),
+            "kamernaam" => $request->input("kamernaam"),
+            "user_id" => Auth::user()->id
+        ]);
+        return redirect('room/');
     }
 
     /**
@@ -45,7 +54,9 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        //
+        $room = Room::FindOrFail($id);
+
+        return view('room.show', ['room' => $room]);
     }
 
     /**
