@@ -24,7 +24,7 @@
 
     <!--Start Banner -->
         <main id="app">
-            @yield('content')
+            @yield('content')g
         </main>
     <!-- Contact US ends -->
 

@@ -27,7 +27,7 @@ class RoomController extends Controller
     {
         $rooms = Room::all();
 
-        return view('room.create', compact('rooms'));
+        return view('layouts.room.create', compact('rooms'));
     }
 
     /**
@@ -38,12 +38,12 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        Room::create([
-            "kamernummer" => $request->input("kamernummer"),
-            "kamernaam" => $request->input("kamernaam"),
-            "user_id" => Auth::user()->id
+        Auth::user()->room()->create([
+            "number" => $request->input("room_number"),
+            "name" => $request->input("room_name")
         ]);
-        return redirect('room/');
+
+        return redirect('rooms/');
     }
 
     /**

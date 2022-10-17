@@ -22,6 +22,11 @@
                 <li class="nav-item">
                     <a class="nav-link wow fadeInDown scroll" href="#reserve-sec">Book Now</a>
                 </li>
+                @role('Admin')
+                    <li class="nav-item">
+                        <a class="nav-link wow fadeInDown scroll" href="{{ route('admin.index') }}">Admin</a>
+                    </li>
+                @endrole
                 </ul>
              </div>
         </div>
@@ -56,6 +61,11 @@
                     <li class="nav-item">
                         <a class="nav-link scroll" href="#reserve-sec">Book Now</a>
                     </li>
+                    @role('Admin')
+                        <li class="nav-item">
+                            <a class="nav-link wow fadeInDown scroll" href="{{ route('admin.index') }}">Admin</a>
+                        </li>
+                    @endrole
 
                 </ul>
             </nav>

@@ -15,6 +15,7 @@
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
@@ -30,6 +31,7 @@
             "Database\\Seeders\\": "database/seeders/"
         }
     },
+
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
@@ -52,7 +54,8 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": ["barryvdh/laravel-ide-helper"]
+
         }
     },
     "config": {
@@ -65,4 +68,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true
+
 }

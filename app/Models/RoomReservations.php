@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Room extends Model
+class RoomReservations extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function reservations()
+    public function room()
     {
-        return $this->hasMany(RoomReservations::class);
+        return $this->belongsTo(Room::class);
     }
 }
-
-
